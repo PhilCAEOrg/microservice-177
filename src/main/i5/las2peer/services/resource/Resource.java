@@ -87,7 +87,7 @@ public class Resource extends RESTService {
    * getTodos
    *
    * 
-   * @param payl2  a JSONObject
+   * @param payload  a JSONObject
    * 
    * @return Response 
    * 
@@ -97,13 +97,13 @@ public class Resource extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "reso")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "response")
   })
   @ApiOperation(value = "getTodos", notes = " ")
-  public Response getTodos(String payl2) {
-   classes.Song payloadpayl2Object = new classes().new Song();
+  public Response getTodos(String payload) {
+   classes.Song payloadpayloadObject = new classes().new Song();
    try { 
-       payloadpayl2Object.fromJSON(payl2);
+       payloadpayloadObject.fromJSON(payload);
    } catch (Exception e) { 
        e.printStackTrace();
        JSONObject result = new JSONObject();
@@ -120,9 +120,9 @@ public class Resource extends RESTService {
 
 
 
-    // reso
-    boolean reso_condition = true;
-    if(reso_condition) {
+    // response
+    boolean response_condition = true;
+    if(response_condition) {
       JSONObject result = new JSONObject();
 
       

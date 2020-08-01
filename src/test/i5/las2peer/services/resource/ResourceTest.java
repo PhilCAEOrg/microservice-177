@@ -100,9 +100,9 @@ public class ResourceTest {
     MiniClient c = new MiniClient();
     c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
     try {
-      JSONObject payl2 = new JSONObject();
+      JSONObject payload = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("GET", mainPath + "/todo", payl2.toJSONString(),
+      ClientResponse result = c.sendRequest("GET", mainPath + "/todo", payload.toJSONString(),
         MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
       System.out.println("Result of 'testgetTodos': " + result.getResponse().trim());
