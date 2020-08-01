@@ -71,9 +71,9 @@ public class Resource extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "177", version = "$Metadata_Version$",
-          description = "$Metadata_Description$",
-          termsOfService = "$Metadata_Terms$",
+      info = @Info(title = "177", version = "",
+          description = "",
+          termsOfService = "",
           contact = @Contact(name = "", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
               url = "https://github.com/PhilCAEOrg/microservice-177/blob/master/LICENSE.txt") ) )
@@ -87,7 +87,7 @@ public class Resource extends RESTService {
    * getTodos
    *
    * 
-   * @param payl  a JSONObject
+   * @param payl2  a JSONObject
    * 
    * @return Response 
    * 
@@ -100,9 +100,15 @@ public class Resource extends RESTService {
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "reso")
   })
   @ApiOperation(value = "getTodos", notes = " ")
-  public Response getTodos(String payl) {
-    JSONObject payl_JSON = (JSONObject) JSONValue.parse(payl);
-
+  public Response getTodos(String payl2) {
+   classes.Song payloadpayl2Object = new classes().new Song();
+   try { 
+       payloadpayl2Object.fromJSON(payl2);
+   } catch (Exception e) { 
+       e.printStackTrace();
+       JSONObject result = new JSONObject();
+       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+   }
 
 
 
